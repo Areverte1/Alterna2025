@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Imagen aleatoria</title>
+  <style>
+    body { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; background: #f7f7fa;}
+    img { max-width: 90vw; max-height: 70vh; border-radius: 16px; box-shadow: 0 4px 24px #0002; }
+    .btn { margin-top: 30px; font-size: 1.1em; padding: 8px 18px; border: none; border-radius: 10px; background: #518aff; color: white; cursor: pointer; box-shadow: 0 2px 8px #0001;}
+    .info { margin-bottom: 20px; color: #666; font-size: 1.2em;}
+  </style>
+</head>
+<body>
+  <div class="info">Imagen aleatoria del grupo</div>
+  <img id="random-image" src="" alt="Imagen aleatoria">
+  <button class="btn" onclick="mostrarAleatoria()">Ver otra imagen</button>
+  <script src="imagenes.js"></script>
+  <script>
+    function mostrarAleatoria() {
+      if(typeof window.imagenes === "undefined" || !window.imagenes.length) {
+        alert("No hay imágenes disponibles.");
+        return;
+      }
+      const idx = Math.floor(Math.random() * window.imagenes.length);
+      document.getElementById("random-image").src = "imagenes/" + window.imagenes[idx];
+    }
+    mostrarAleatoria();
+  </script>
+</body>
+</html>
